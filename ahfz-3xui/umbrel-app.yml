@@ -5,7 +5,7 @@ tagline: v2ray vless vmess vpn shadowsocks socks trojan
 icon: https://github.com/MHSanaei/3x-ui/raw/main/media/3x-ui-light.png
 category: network
 version: "-"
-port: 5432
+port: 2053
 description:
   3X-UI — advanced, open-source web-based control panel designed for managing Xray-core server. 
   It offers a user-friendly interface for configuring and monitoring various VPN and proxy protocols.
