@@ -1,0 +1,19 @@
+manifestVersion: 1
+id: ahfz-tgfeed
+name: tgfeed
+tagline: rss
+icon: https://tgfeed.com/favicon.ico?favicon.0b3bf435.ico
+category: network
+version: "-"
+port: 2053
+description:
+  tgfeed converts Telegram channels into RSS or Atom feeds suitable for any RSS reader of your choice. It runs as an HTTP server that dynamically scrapes t.me channel pages and generates RSS or Atom feeds on demand.
+repo: https://github.com/nDmitry/tgfeed/
+website: https://tgfeed.com/
+submitter:
+submission:
+support: https://github.com/nDmitry/tgfeed/issues
+gallery:
+releaseNotes:
+dependencies: [ ]
+path: ""
