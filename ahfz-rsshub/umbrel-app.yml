@@ -1,0 +1,23 @@
+manifestVersion: 1
+id: ahfz-rsshub
+name: RSS Hub
+tagline: rss
+icon: https://docs.rsshub.app/logo.png
+category: network
+version: "-"
+port: 1200
+description:
+  RSSHub is the world's largest RSS network, consisting of over 5,000 global instances.
+
+  RSSHub delivers millions of contents aggregated from all kinds of sources, our vibrant open source community is ensuring the deliver of RSSHub's new routes, new features and bug fixes.
+
+repo: https://github.com/DIYgod/RSSHub
+website: https://rsshub.app/
+submitter:
+submission:
+support: https://github.com/DIYgod/RSSHub/issues
+gallery:
+  - https://blog.timowens.io/content/images/2020/08/Screen-Shot-2020-08-24-at-7.57.27-PM-1.png
+releaseNotes:
+dependencies: [ ]
+path: ""
