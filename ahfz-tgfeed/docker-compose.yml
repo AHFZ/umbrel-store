@@ -1,0 +1,77 @@
+services:
+  tgfeed:
+    container_name: tgfeed
+    image: ghcr.io/ndmitry/tgfeed:latest
+    environment:
+      - TZ=Europe/Moscow
+      - HTTP_SERVER_PORT=8080
+      # Enable Redis caching
+      - REDIS_HOST=redis
+      # You can specify a custom HTML message for cases when the scraper
+      # could not obtain the post content from t.me.
+      # Use {postDeepLink} and {postURL} as placeholders for post links.
+      # - UNSUPPORTED_MESSAGE_HTML=
+      # You can specify a custom title for image-only posts (default: "[🖼️ Image]")
+      # - IMAGE_POST_TITLE_TEXT=
+      # If you expirience problems with t.me access,
+      # try to change the UA and/or use an HTTP proxy
+      # - USER_AGENT=
+      # - HTTPS_PROXY=
+      # Restrict access to specific IPs (e.g., feed readers)
+      # - ALLOWED_IPS=10.0.0.0/24,192.168.1.1
+      # Enable if running behind a reverse proxy (nginx, Caddy, etc.)
+      # and using ALLOWED_IPS
+      # - REVERSE_PROXY=true
+    ports:
+      - 8080:8080
+    # Enable dependency on Redis
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - tgfeed-network
+
+  # Redis for caching
+  redis:
+    container_name: redis
+    image: redis:alpine
+    environment:
+      - TZ=Europe/Moscow
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis-data:/data
+      - ./redis.conf:/usr/local/etc/redis/redis.conf:ro
+    command: redis-server /usr/local/etc/redis/redis.conf
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 30s
+      timeout: 10s
+      retries: 5
+      start_period: 5s
+    restart: unless-stopped
+    networks:
+      - tgfeed-network
+
+  # Optional: Redis Commander for GUI management (useful for monitoring cache)
+  redis-commander:
+    container_name: redis-commander
+    image: rediscommander/redis-commander:latest
+    environment:
+      - REDIS_HOSTS=local:redis:6379
+      - TZ=Europe/Moscow
+    ports:
+      - "8081:8081"
+    depends_on:
+      - redis
+    restart: unless-stopped
+    networks:
+      - tgfeed-network
+
+volumes:
+  redis-data:
+    driver: local
+
+networks:
+  tgfeed-network:
+    driver: bridge
