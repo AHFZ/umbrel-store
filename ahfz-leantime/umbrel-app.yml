@@ -1,4 +1,4 @@
-manifestVersion: 1
+manifestVersion: 5
 id: ahfz-leantime
 name: Leantime
 tagline: project manager
@@ -7,8 +7,7 @@ category: productivity
 version: "-"
 port: 8080
 description:
-  RProject management for the
-non-project manager​
+  Project management for the non-project manager​
 repo: https://github.com/Leantime
 website: https://Leantime.io/
 submitter:
