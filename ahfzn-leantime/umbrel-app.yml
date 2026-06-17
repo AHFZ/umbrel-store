@@ -1,0 +1,21 @@
+manifestVersion: 1
+id: ahfz-leantime
+name: Leantime
+tagline: project manager
+icon: https://cdn.elearningindustry.com/wp-content/uploads/2020/02/728d3abcee740013c53493d023f57523.jpeg
+category: productivity
+version: "-"
+port: 8080
+description:
+  RProject management for the
+non-project manager​
+repo: https://github.com/Leantime
+website: https://Leantime.io/
+submitter:
+submission:
+support: https://github.com/Leantime/issues
+gallery:
+  - https://assets.leantime.io/wp-content/uploads/2025/06/myWork-20250521-zoomed.png
+releaseNotes:
+dependencies: [ ]
+path: ""
