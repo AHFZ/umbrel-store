@@ -7,16 +7,28 @@ services:
       - ${APP_DATA_DIR}/data/db/:/etc/x-ui/
       - ${APP_DATA_DIR}/data/cert/:/root/cert/
     environment:
-      XRAY_VMESS_AEAD_FORCED: "false"
-      XUI_ENABLE_FAIL2BAN: "true"
+      XRAY_VMESS_AEAD_FORCED: 'false'
+      XUI_ENABLE_FAIL2BAN: 'true'
     tty: true
-    network_mode: host
+    ports:
+      - "2053:2053"          # 3x-ui web panel dashboard
+      - "30621:30621"        # Inbound port
+      - "37388:37388"        # Inbound port
+      - "47617:47617"        # Inbound port
+      - "51522:51522"        # Inbound port
+      # Extra Port 1 (Both TCP and UDP)
+      - "60001:60001/tcp"
+      - "60001:60001/udp"
+      # Extra Port 2 (Both TCP and UDP)
+      - "60002:60002/tcp"
+      - "60002:60002/udp"
     restart: unless-stopped
 
   postgres:
     image: postgres:16-alpine
     container_name: 3xui_postgres
-    profiles: ["postgres"]
+    profiles:
+      - postgres
     environment:
       POSTGRES_USER: xui
       POSTGRES_PASSWORD: xui
