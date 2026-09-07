@@ -1,0 +1,27 @@
+manifestVersion: 1
+id: ahfz-jenkins
+name: Jenkins
+tagline: Leading open source automation server
+icon: https://www.jenkins.io/images/logos/jenkins/jenkins.png
+category: developer
+version: "-"
+port: 8080
+description: |
+  Jenkins is the leading open source automation server. It provides hundreds of plugins to support building, deploying, and automating any project.
+
+  Key Features:
+  - Continuous Integration and Continuous Delivery (CI/CD)
+  - Easy setup and configuration via web interface
+  - Hundreds of plugins in the Update Center
+  - Extensible via DSL and Pipeline scripts
+  - Distributed builds across multiple machines
+repo: https://github.com/jenkinsci/jenkins
+website: https://www.jenkins.io/
+submitter:
+submission:
+support: https://github.com/jenkinsci/jenkins/issues
+gallery:
+  - https://www.jenkins.io/images/post-images/2021-12-10-dark-theme/dark-theme.png
+releaseNotes:
+dependencies: [ ]
+path: ""
